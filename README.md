@@ -11,7 +11,8 @@ This package contains the analysis tools for processing of observations of the C
 
 ## Acknowledgement
 If you found this package useful for your work, please cite my thesis:
-[1] Vyoma Muralidhara (2024): Spectral distortion and polarization of the cosmic microwave background: Measurement, challenges and perspectives, [DOI:10.5282/edoc.34768](https://arxiv.org/abs/2503.08538). 
+
+Vyoma Muralidhara (2024): Spectral distortion and polarization of the cosmic microwave background: Measurement, challenges and perspectives, [DOI:10.5282/edoc.34768](https://arxiv.org/abs/2503.08538). 
 BibTex entry:
 ```
 @phdthesis{Muralidhara:2024hey,

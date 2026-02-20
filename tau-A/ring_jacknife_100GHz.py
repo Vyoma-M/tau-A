@@ -3,13 +3,14 @@ from astropy.io import fits
 import healpy as hp
 import npipe_utils as utils
 import scipy
+import os
 from astropy.io import ascii
 from astropy.table import Table
 
 nside = 2048
 nnz = 3
 f = 100  # GHz
-path = "/home/vmura/npipe/code/ring_analysis/"
+path = utils.get_data_path(subfolder="data/")
 split = "A"
 pixels = []
 iweights = []
@@ -34,7 +35,7 @@ sumi = np.zeros((pa.shape[0], nnz))
 dets = utils.get_dets_split(f, split)
 for det in dets:
     with fits.open(
-        "/home/vmura/npipe/data/M1/small_dataset_M1_{}.fits".format(det)
+        os.path.join(path, "small_dataset_M1_{}.fits".format(det))
     ) as hdul:
         data = hdul[1].data
         cols = hdul[1].columns
@@ -133,4 +134,4 @@ tab["pd"] = np.sqrt(sumi[:, 1] ** 2 + sumi[:, 2] ** 2)
 tab["i"] = sumi[:, 0]
 tab["q"] = sumi[:, 1]
 tab["u"] = sumi[:, 2]
-ascii.write(tab, path + "100_ring_" + split + ".txt", overwrite=True)
+ascii.write(tab, path + "100GHz_ring_" + split + ".txt", overwrite=True)
